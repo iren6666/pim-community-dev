@@ -82,6 +82,7 @@
 
 ### Others
 
+- Add method `getAssociatedProductIds` to `Pim\Component\Catalog\Repository\ProductRepositoryInterface`
 - Remove useless method `applyFilterByIds` of `Pim\Component\Catalog\Repository\ProductCategoryRepositoryInterface`
 - Remove useless method `getLocalesQB` of `Pim\Component\Catalog\Repository\LocaleRepositoryInterface`
 - Remove useless method `findTypeIds` of `Pim\Component\Catalog\Repository\GroupTypeRepositoryInterface`
