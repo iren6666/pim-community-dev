@@ -1462,7 +1462,6 @@ class WebUser extends RawMinkContext
 
                 $this->getCurrentPage()->addOption($code, $data);
 
-                $this->wait();
                 return true;
             }, sprintf('Unable to create the attribute option %s', $data['Code']));
         }
@@ -1485,22 +1484,11 @@ class WebUser extends RawMinkContext
     }
 
     /**
-     * @param TableNode $table
-     *
      * @When /^I add an empty attribute option$/
-     * @When /^I add the following attribute option:$/
      */
-    public function iAddAnOptionRow(TableNode $table = null)
+    public function iAddAnEmptyAttributeOption()
     {
         $this->getCurrentPage()->createOption();
-
-        if (null !== $table) {
-            $values = $table->getRowsHash();
-            $code = $values['Code'];
-            unset($values['Code']);
-
-            $this->getCurrentPage()->fillLastOption($code, $values);
-        }
     }
 
     /**
