@@ -1779,7 +1779,6 @@ class WebUser extends RawMinkContext
     public function theFamilyOfProductShouldBe($sku, $expectedFamily = '')
     {
         $this->spin(function () use ($sku, $expectedFamily) {
-            $this->clearUOW();
             $product      = $this->getFixturesContext()->getProduct($sku);
             $actualFamily = $product->getFamily() ? $product->getFamily()->getCode() : '';
 
@@ -1795,7 +1794,6 @@ class WebUser extends RawMinkContext
      */
     public function theCategoryOfProductShouldBe($sku, $categoryCode)
     {
-        $this->clearUOW();
         $product = $this->getFixturesContext()->getProduct($sku);
 
         $categoryCodes = $product->getCategoryCodes();
