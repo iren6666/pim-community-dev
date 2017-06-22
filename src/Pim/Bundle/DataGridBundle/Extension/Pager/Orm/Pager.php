@@ -97,15 +97,9 @@ class Pager extends AbstractPager implements PagerInterface
     {
         $qb = clone $this->getQueryBuilder();
 
-        $rootAlias = current($qb->getRootAliases());
-        $rootField = $rootAlias.'.id';
-        $qb
-            ->select($rootField)
-            ->distinct(true)
-            ->setFirstResult(null)
+        $qb->setFirstResult(null)
             ->setMaxResults(null)
-            ->resetDQLPart('orderBy')
-            ->resetDQLPart('groupBy');
+            ->resetDQLPart('orderBy');
 
         QueryBuilderUtility::removeExtraParameters($qb);
 
