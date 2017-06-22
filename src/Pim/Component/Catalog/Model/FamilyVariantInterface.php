@@ -2,6 +2,7 @@
 
 namespace Pim\Component\Catalog\Model;
 
+use Akeneo\Component\Localization\Model\TranslatableInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
 /**
@@ -9,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @copyright 2017 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-interface FamilyVariantInterface
+interface FamilyVariantInterface extends TranslatableInterface
 {
     /**
      * @return int
@@ -29,12 +30,27 @@ interface FamilyVariantInterface
     /**
      * @return ArrayCollection
      */
+    public function getCommonAttributeSets(): ArrayCollection;
+
+    /**
+     * @return ArrayCollection
+     */
     public function getVariantAttributeSets(): ArrayCollection;
 
     /**
-     * @param ArrayCollection $variantAttributeSets
+     * @param int                   $level
+     * @param AttributeSetInterface $variantAttributeSets
+     *
+     * @return mixed
      */
-    public function setVariantAttributeSets(ArrayCollection $variantAttributeSets);
+    public function addVariantAttributeSet(int $level, AttributeSetInterface $variantAttributeSets);
+
+    /**
+     * @param AttributeSetInterface $variantAttributeSets
+     *
+     * @return mixed
+     */
+    public function addCommonVariantAttributeSet(AttributeSetInterface $variantAttributeSets);
 
     /**
      * @param FamilyInterface $family

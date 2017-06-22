@@ -2,7 +2,6 @@
 
 namespace Pim\Component\Catalog\Model;
 
-use Akeneo\Component\Localization\Model\TranslatableInterface;
 use Akeneo\Component\Localization\Model\TranslationInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 
@@ -11,7 +10,7 @@ use Doctrine\Common\Collections\ArrayCollection;
  * @copyright 2017 Akeneo SAS (http://www.akeneo.com)
  * @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
  */
-class FamilyVariant implements FamilyVariantInterface, TranslatableInterface
+class FamilyVariant implements FamilyVariantInterface
 {
     /** @var int */
     private $id;
@@ -84,9 +83,21 @@ class FamilyVariant implements FamilyVariantInterface, TranslatableInterface
     /**
      * {@inheritdoc}
      */
-    public function setVariantAttributeSets(ArrayCollection $variantAttributeSets)
+    public function addVariantAttributeSet(int $level, AttributeSetInterface $variantAttributeSets)
     {
-        $this->variantAttributeSets = $variantAttributeSets;
+        if ($level <= 0) {
+            throw new \InvalidArgumentException('The level must be greater than 0');
+        }
+
+        $this->variantAttributeSets->set($level, $variantAttributeSets);
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function addCommonVariantAttributeSet(AttributeSetInterface $variantAttributeSets)
+    {
+        $this->variantAttributeSets->set(0, $variantAttributeSets);
     }
 
     /**
