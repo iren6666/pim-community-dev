@@ -5,9 +5,8 @@ namespace Pim\Behat\Context;
 use Behat\ChainedStepsExtension\Step;
 use Behat\ChainedStepsExtension\Step\Then;
 use Context\Spin\SpinCapableTrait;
-use SensioLabs\Behat\PageObjectExtension\PageObject\Factory as PageObjectFactory;
 use SensioLabs\Behat\PageObjectExtension\Context\PageObjectAware;
-use SensioLabs\Behat\PageObjectExtension\PageObject\Page;
+use SensioLabs\Behat\PageObjectExtension\PageObject\Factory as PageObjectFactory;
 
 class NavigationContext extends PimContext implements PageObjectAware
 {
