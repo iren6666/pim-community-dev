@@ -21,7 +21,7 @@
     },
     "autoload-dev": {
         "files": [
-            "vendor/phpunit/phpunit/PHPUnit/Framework/Assert/Functions.php"
+            "vendor/phpunit/phpunit/src/Framework/Assert/Functions.php"
         ]
     },
     "require": {

@@ -161,13 +161,15 @@ class Base extends Page
      */
     public function getUrl(array $options = [])
     {
-        $url = preg_split('/#/', $this->getPath())[1];
+        $url = $this->getPath();
 
         foreach ($options as $parameter => $value) {
             $url = str_replace(sprintf('{%s}', $parameter), $value, $url);
         }
 
-        return $url;
+        $baseUrl = rtrim($this->getParameter('base_url'), '/').'/';
+
+        return 0 !== strpos($url, 'http') ? $baseUrl.ltrim($url, '/') : $url;
     }
 
     /**
