@@ -23,14 +23,13 @@ default:
                 - Pim\Behat\Context\Domain\Enrich\AttributeTabContext
                 - Pim\Behat\Context\Domain\Enrich\CompletenessContext
                 - Pim\Behat\Context\Domain\Enrich\GridPaginationContext
-                - Pim\Behat\Context\Domain\Enrich\PanelContext
-                - Pim\Behat\Context\Domain\Enrich\Product\AssociationTabContext
                 - Pim\Behat\Context\Domain\Enrich\ProductGroupContext
                 - Pim\Behat\Context\Domain\Enrich\VariantGroupContext
                 - Pim\Behat\Context\Domain\Spread\ExportBuilderContext
                 - Pim\Behat\Context\Domain\Spread\ExportProfilesContext
                 - Pim\Behat\Context\Domain\Spread\XlsxFileContext
                 - Pim\Behat\Context\Domain\System\PermissionsContext
+                - Pim\Behat\Context\Domain\SecondaryActionsContext
                 - Pim\Behat\Context\Domain\TreeContext
                 - Pim\Behat\Context\HookContext:
                     - 1280

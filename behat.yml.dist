@@ -5,7 +5,7 @@ default:
                 - Behat\MinkExtension\Context\MinkContext
                 - Context\FeatureContext:
                     -
-                        base_url: http://pcd-behat.akeneo.local/
+                        base_url: http://akeneo-pim-behat.local/
                         timeout: 30000
                         window_width: 1280
                         window_height: 1024
@@ -15,22 +15,21 @@ default:
                 - Context\DataGridContext
                 - Context\CommandContext
                 - Context\NavigationContext:
-                    - http://pcd-behat.akeneo.local/
+                    - http://akeneo-pim-behat.local/
                 - Context\TransformationContext
                 - Context\AssertionContext
-                - Context\TechnicalContext
                 - Pim\Behat\Context\AttributeValidationContext
                 - Pim\Behat\Context\Domain\Collect\ImportProfilesContext
                 - Pim\Behat\Context\Domain\Enrich\AttributeTabContext
                 - Pim\Behat\Context\Domain\Enrich\CompletenessContext
                 - Pim\Behat\Context\Domain\Enrich\GridPaginationContext
-                - Pim\Behat\Context\Domain\Enrich\PanelContext
-                - Pim\Behat\Context\Domain\Enrich\Product\AssociationTabContext
+                - Pim\Behat\Context\Domain\Enrich\ProductGroupContext
                 - Pim\Behat\Context\Domain\Enrich\VariantGroupContext
                 - Pim\Behat\Context\Domain\Spread\ExportBuilderContext
                 - Pim\Behat\Context\Domain\Spread\ExportProfilesContext
                 - Pim\Behat\Context\Domain\Spread\XlsxFileContext
                 - Pim\Behat\Context\Domain\System\PermissionsContext
+                - Pim\Behat\Context\Domain\SecondaryActionsContext
                 - Pim\Behat\Context\Domain\TreeContext
                 - Pim\Behat\Context\HookContext:
                     - 1280
@@ -49,7 +48,7 @@ default:
                     symfony2: ~
                 selenium2:
                     selenium2: ~
-            base_url: http://nginx-behat.local/
+            base_url: http://akeneo-pim-behat.local/
             files_path: 'features/Context/fixtures/'
         Behat\Symfony2Extension:
             kernel:
@@ -58,3 +57,6 @@ default:
         SensioLabs\Behat\PageObjectExtension:
             namespaces:
                 page: [Context\Page]
+            factory:
+                page_parameters:
+                    base_url: http://akeneo-pim-behat.local/
